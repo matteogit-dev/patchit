@@ -4,9 +4,13 @@ import { games } from '../data/games'
 import { GameCard } from '../components/GameCard'
 import { fetchAllReleasesDownloads } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 function Home() {
   const [totalDownloads, setTotalDownloads] = useState(null)
+
+  usePageMeta(null, 'Patch di traduzione amatoriale gratuite per videogiochi PC senza localizzazione ufficiale in italiano.')
+
 
   useEffect(() => {
     fetchAllReleasesDownloads().then(setTotalDownloads)
@@ -65,7 +69,9 @@ function Home() {
           <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
         </div>
         <div className="grid">
-          {recentGames.map(game => <GameCard key={game.id} game={game} />)}
+          {recentGames.map((game, i) => (
+            <GameCard key={game.id} game={game} isNew={i === 0} />
+          ))}
         </div>
       </section>
     </>

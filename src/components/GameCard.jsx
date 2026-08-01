@@ -6,7 +6,7 @@ export function StatusTag({ status }) {
   return <div className={`status-tag ${status}`}>{label}</div>
 }
 
-export function GameCard({ game }) {
+export function GameCard({ game, isNew = false }) {
   const progressClass = game.progress === 100 ? 'complete' : game.progress > 30 ? 'progress' : 'early'
   return (
     <Link to={`/gioco/${game.id}`} className="card">
@@ -17,6 +17,7 @@ export function GameCard({ game }) {
           <span className="glyph">{game.code}</span>
         )}
         <StatusTag status={game.status} />
+        {isNew && <div className="new-badge">NUOVA</div>}
       </div>
       <div className="card-body">
         <h3>{game.title}</h3>

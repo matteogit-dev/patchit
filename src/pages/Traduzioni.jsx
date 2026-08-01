@@ -2,11 +2,13 @@ import { useState, useMemo } from 'react'
 import { games } from '../data/games'
 import { GameCard } from '../components/GameCard'
 import { compareVersions } from '../utils/version'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 function Traduzioni() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [sortBy, setSortBy] = useState('recent')
+  usePageMeta('Tutte le traduzioni', 'Sfoglia tutte le traduzioni amatoriali disponibili per videogiochi PC.')
 
   const filteredGames = useMemo(() => {
     let result = [...games]

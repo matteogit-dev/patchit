@@ -10,6 +10,11 @@ function GameDetail() {
   const game = games.find(g => g.id === id)
   const [downloadCount, setDownloadCount] = useState(null)
 
+    usePageMeta(
+    game?.title,
+    game ? `Traduzione italiana per ${game.title}. ${game.description}` : 'Traduzione non trovata.'
+  )
+
   useEffect(() => {
     if (game?.releaseTag) {
       fetchReleaseDownloads(game.releaseTag).then(setDownloadCount)
