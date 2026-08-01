@@ -11,13 +11,15 @@ export async function fetchReleaseDownloads(tag) {
   }
 }
 
-export async function fetchAllReleasesDownloads() {
+// Somma i download di più tag specifici (uno per versione nel changelog),
+// invece di affidarsi alla lista completa /releases che può risultare disallineata
+// poco dopo la pubblicazione di una nuova release.
+export async function fetchGameDownloadsByTags(tags) {
   try {
-    const res = await fetch(`https://api.github.com/repos/${REPO}/releases`)
-    if (!res.ok) return null
-    const data = await res.json()
-    return data.reduce((sum, release) =>
-      sum + release.assets.reduce((s, a) => s + a.download_count, 0), 0)
+    const results = await Promise.all(tags.map(tag => fetchReleaseDownloads(tag)))
+    const validResults = results.filter(r => r !== null)
+    if (validResults.length === 0) return null
+    return validResults.reduce((sum, count) => sum + count, 0)
   } catch {
     return null
   }

@@ -2,18 +2,28 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { games } from '../data/games'
 import { GameCard } from '../components/GameCard'
-import { fetchAllReleasesDownloads } from '../utils/github'
+import { fetchGameDownloadsByTags } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 function Home() {
+  
+  const [downloadsStatus, setDownloadsStatus] = useState('loading') // loading | success | error
   const [totalDownloads, setTotalDownloads] = useState(null)
 
   usePageMeta(null, 'Patch di traduzione amatoriale gratuite per videogiochi PC senza localizzazione ufficiale in italiano.')
 
 
   useEffect(() => {
-    fetchAllReleasesDownloads().then(setTotalDownloads)
+    const allTags = games.flatMap(g => g.releaseTags || [])
+    fetchGameDownloadsByTags(allTags).then(result => {
+      if (result === null) {
+        setDownloadsStatus('error')
+      } else {
+        setTotalDownloads(result)
+        setDownloadsStatus('success')
+      }
+    })
   }, [])
 
   const completedCount = games.filter(g => g.progress === 100).length
@@ -49,7 +59,11 @@ function Home() {
             </div>
             <div className="stat-row hl">
               <div className="stat-label"><span className="idx">02</span>download totali</div>
-              <div className="stat-value">{totalDownloads === null ? '—' : totalDownloads}</div>
+              <div className="stat-value">
+              {downloadsStatus === 'loading' && '…'}
+              {downloadsStatus === 'success' && totalDownloads}
+              {downloadsStatus === 'error' && <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>n/d</span>}
+            </div>
             </div>
             <div className="stat-row">
               <div className="stat-label"><span className="idx">03</span>stringhe tradotte</div>

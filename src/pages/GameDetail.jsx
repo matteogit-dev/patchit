@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { games } from '../data/games'
-import { fetchReleaseDownloads } from '../utils/github'
+import { fetchGameDownloadsByTags } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
 import { compareVersions } from '../utils/version'
 import { usePageMeta } from '../hooks/usePageMeta'
@@ -10,6 +10,8 @@ function GameDetail() {
   const { id } = useParams()
   const game = games.find(g => g.id === id)
   const [downloadCount, setDownloadCount] = useState(null)
+  const [downloadStatus, setDownloadStatus] = useState('loading')
+
 
     usePageMeta(
     game?.title,
@@ -17,8 +19,15 @@ function GameDetail() {
   )
 
   useEffect(() => {
-    if (game?.releaseTag) {
-      fetchReleaseDownloads(game.releaseTag).then(setDownloadCount)
+    if (game?.releaseTags?.length > 0) {
+      fetchGameDownloadsByTags(game.releaseTags).then(result => {
+        if (result === null) {
+          setDownloadStatus('error')
+        } else {
+          setDownloadCount(result)
+          setDownloadStatus('success')
+        }
+      })
     }
   }, [game])
 
@@ -55,7 +64,12 @@ function GameDetail() {
           </div>
           <div className="progress-label" style={{ width: '280px' }}>
             <span>{game.progress}% completato</span>
-            <span>{downloadCount !== null ? `${downloadCount} download` : (game.releaseTag ? '… download' : '')}</span>
+            <span>
+            {(!game.releaseTags || game.releaseTags.length === 0) && ''}
+            {game.releaseTags?.length > 0 && downloadStatus === 'loading' && '… download'}
+            {game.releaseTags?.length > 0 && downloadStatus === 'success' && `${downloadCount} download`}
+            {game.releaseTags?.length > 0 && downloadStatus === 'error' && 'download: n/d'}
+          </span>
           </div>
 
           <div className="cta-row" style={{ marginTop: '20px' }}>
