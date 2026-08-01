@@ -1,16 +1,38 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎮 PatchIT
 
-Currently, two official plugins are available:
+**Patch di traduzione amatoriale per videogiochi PC in italiano.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[Sito Web](https://matteogit-dev.github.io/patchit/) • [Segnala un Problema](https://github.com/matteogit-dev/patchit/issues)
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Cos'è PatchIT?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**PatchIT** è una piattaforma creata per raccogliere, gestire e distribuire **patch di traduzione amatoriale in italiano** per titoli PC che non dispongono di una localizzazione ufficiale. 
+
+L'obiettivo del progetto è rendere accessibili videogiochi indie o poco conosciuti alla community italiana, fornendo testi, guide all'installazione, changelog dettagliati e monitoraggio del progresso dei lavori.
+
+---
+
+## ✨ Caratteristiche Principali
+
+- 📊 **Tracker di Progresso:** Stato di avanzamento, statistiche e note di versione per ciascun progetto.
+- ⏬ **Download Gratuiti & Diretti:** Accesso immediato alle patch e alle istruzioni di installazione.
+- 🎨 **Interfaccia Chiara e Intuitiva:** Consultazione rapida del catalogo e dei progetti disponibili.
+- 🛠️ **Ecosistema dedicato:** Sviluppato per integrarsi con gli strumenti della suite *LocalizeIT*.
+
+---
+
+## 📄 Disclaimer
+
+**PatchIT** è un progetto amatoriale e no-profit. Non ha alcuna affiliazione con i rispettivi sviluppatori o publisher dei videogiochi citati. Tutti i marchi e i diritti d'autore appartengono ai legittimi proprietari.
+
+---
+
+<div align="center">
+  Made with ❤️ for the Italian Gaming Community
+</div>
