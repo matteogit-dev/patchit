@@ -50,4 +50,23 @@ export const games = [
       { version: 'v1.0.3', date: '2024-04-27', note: 'Corretto un errore di traduzione.' }
     ],
   },
+  {
+    id: 'wwi',
+    title: 'World War I',
+    code: 'wwi',
+    status: 'progress',
+    version: 'v1.0',
+    updatedDate: null,
+    progress: 0,
+    stringsTranslated: 0, //2732 stringhe
+    downloadUrl: null,
+    releaseTag: null,
+    coverImage: 'games/world-war-i/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/361380/World_War_I/',
+    description: '',
+    instructions: [
+    ],
+    changelog: [
+    ],
+  },
 ]

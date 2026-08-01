@@ -4,6 +4,7 @@ import { games } from '../data/games'
 import { fetchReleaseDownloads } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
 import { compareVersions } from '../utils/version'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 function GameDetail() {
   const { id } = useParams()
