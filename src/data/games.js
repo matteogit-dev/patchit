@@ -15,7 +15,7 @@ export const games = [
     description: 'Traduzione amatoriale completa dei sottotitoli e dei testi di Dear Esther: Landmark Edition.',
     instructions: [
       'Scarica ed estrai lo zip della traduzione.',
-      'Copia i file estratti nella cartella di installazione del gioco steamapps/common/Dear Esther Landmark Edition/DearEsther_Data/StreamingAssets.',
+      'Copia il file estratto nella cartella di installazione del gioco steamapps/common/Dear Esther Landmark Edition/DearEsther_Data/StreamingAssets.',
       'Sovrascrivi il file quando richiesto.',
       'Avvia il gioco e seleziona la lingua Inglese dal menu impostazioni.',
     ],
@@ -45,7 +45,7 @@ export const games = [
     ],
     changelog: [      
       { version: 'v1.0', date: '2023-04-18', note: 'Prima versione completa della traduzione.' },
-      { version: 'v1.0.1', date: '2023-04-18', note: 'Tradotti 6 consigli visibili nel precaricamento di una partita' },
+      { version: 'v1.0.1', date: '2023-04-18', note: 'Tradotti 6 consigli visibili nel precaricamento di una partita.' },
       { version: 'v1.0.2', date: '2023-04-20', note: 'Tradotti tutti i consigli visibili nel precaricamento di una partita.' },
       { version: 'v1.0.3', date: '2024-04-27', note: 'Corretto un errore di traduzione.' }
     ],
@@ -54,19 +54,24 @@ export const games = [
     id: 'wwi',
     title: 'World War I',
     code: 'wwi',
-    status: 'progress',
+    status: 'complete',
     version: 'v1.0',
-    updatedDate: null,
-    progress: 0,
-    stringsTranslated: 0, //2732 stringhe
-    downloadUrl: null,
-    releaseTag: null,
+    updatedDate: '2026/08/02',
+    progress: 100,
+    stringsTranslated: 2732,
+    downloadUrl: 'https://github.com/matteogit-dev/patchit/releases/download/world-war-i-1.0/World-War-I-ITA-v1.0.zip',
+    releaseTag: 'world-war-i-1.0',
     coverImage: 'games/world-war-i/cover.jpg',
     steamUrl: 'https://store.steampowered.com/app/361380/World_War_I/',
-    description: '',
+    description: 'Traduzione amatoriale completa dei testi di World War I.',
     instructions: [
+      'Scarica ed estrai lo zip della traduzione.',
+      'Copia il file estratto nella cartella di installazione del gioco steamapps/common/WWI/Data.',
+      'Sovrascrivi il file quando richiesto.',
+      'Avvia il gioco e buon divertimento!',
     ],
     changelog: [
+      { version: 'v1.0', date: '2026-08-02', note: 'Prima versione completa della traduzione.' }
     ],
   },
 ]
