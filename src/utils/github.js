@@ -8,3 +8,14 @@ export async function fetchDownloadsFromStaticFile() {
     return null
   }
 }
+
+export async function fetchStarCount() {
+  try {
+    const res = await fetch('https://api.github.com/repos/matteogit-dev/patchit')
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.stargazers_count
+  } catch {
+    return null
+  }
+}

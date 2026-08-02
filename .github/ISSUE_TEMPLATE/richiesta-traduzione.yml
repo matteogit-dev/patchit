@@ -1,0 +1,53 @@
+name: 🎮 Richiesta traduzione
+description: Suggerisci un gioco da tradurre in italiano
+title: "[Richiesta] "
+labels: ["richiesta-traduzione"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il tuo interesse! Compila i campi qui sotto per segnalare un gioco che vorresti vedere tradotto.
+
+  - type: input
+    id: game-name
+    attributes:
+      label: Nome del gioco
+      placeholder: "Es. Frostrunner"
+    validations:
+      required: true
+
+  - type: input
+    id: steam-link
+    attributes:
+      label: Link Steam (se disponibile)
+      placeholder: "https://store.steampowered.com/app/..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: text-amount
+    attributes:
+      label: Quanto testo ha (approssimativamente)?
+      options:
+        - Non lo so
+        - Poco (menu, poche righe)
+        - Medio (dialoghi essenziali)
+        - Tanto (storia narrativa, molti dialoghi)
+    validations:
+      required: false
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Perché vorresti questa traduzione?
+      placeholder: Raccontami perché questo gioco ti interessa...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verifiche
+      options:
+        - label: Ho controllato che non sia già presente nel catalogo o tra le richieste esistenti
+          required: true

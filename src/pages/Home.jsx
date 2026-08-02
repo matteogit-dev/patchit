@@ -2,48 +2,42 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { games } from '../data/games'
 import { GameCard } from '../components/GameCard'
-import { formatRelativeDate } from '../utils/date'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { fetchDownloadsFromStaticFile } from '../utils/github'
 
 
 function Home() {
-  
+
   const [downloadsStatus, setDownloadsStatus] = useState('loading') // loading | success | error
   const [totalDownloads, setTotalDownloads] = useState(null)
 
   usePageMeta(null, 'Patch di traduzione amatoriale gratuite per videogiochi PC senza localizzazione ufficiale in italiano.')
 
 
-useEffect(() => {
-  fetchDownloadsFromStaticFile().then(downloadsByTag => {
-    if (downloadsByTag === null) {
-      setDownloadsStatus('error')
-    } else {
-      const allTags = games.flatMap(g => g.releaseTags || [])
-      const total = allTags.reduce((sum, tag) => sum + (downloadsByTag[tag] || 0), 0)
-      setTotalDownloads(total)
-      setDownloadsStatus('success')
-    }
-  })
-}, [])
+  useEffect(() => {
+    fetchDownloadsFromStaticFile().then(downloadsByTag => {
+      if (downloadsByTag === null) {
+        setDownloadsStatus('error')
+      } else {
+        const allTags = games.flatMap(g => g.releaseTags || [])
+        const total = allTags.reduce((sum, tag) => sum + (downloadsByTag[tag] || 0), 0)
+        setTotalDownloads(total)
+        setDownloadsStatus('success')
+      }
+    })
+  }, [])
 
   const completedCount = games.filter(g => g.progress === 100).length
   const totalStrings = games.reduce((sum, g) => sum + g.stringsTranslated, 0)
   const activeCount = games.filter(g => g.status === 'complete' || g.status === 'progress').length
-  const gamesWithDate = games.filter(g => g.updatedDate)
-  const mostRecentDate = gamesWithDate.length > 0
-    ? gamesWithDate.reduce((latest, g) =>
-        new Date(g.updatedDate) > new Date(latest) ? g.updatedDate : latest, gamesWithDate[0].updatedDate)
-    : null
 
   const recentGames = games
     .filter(g => g.status === 'complete')
     .sort((a, b) => new Date(b.updatedDate) - new Date(a.updatedDate))
     .slice(0, 3)
-  
+
   const inProgressGames = games.filter(g => g.status === 'progress')
-  
+
   const upcomingGames = games.filter(g => g.status === 'planned' || g.status === 'paused')
 
   return (
@@ -71,59 +65,55 @@ useEffect(() => {
             <div className="stat-row hl">
               <div className="stat-label"><span className="idx">02</span>download totali</div>
               <div className="stat-value">
-              {downloadsStatus === 'loading' && '…'}
-              {downloadsStatus === 'success' && totalDownloads}
-              {downloadsStatus === 'error' && <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>n/d</span>}
-            </div>
+                {downloadsStatus === 'loading' && '…'}
+                {downloadsStatus === 'success' && totalDownloads}
+                {downloadsStatus === 'error' && <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>n/d</span>}
+              </div>
             </div>
             <div className="stat-row">
               <div className="stat-label"><span className="idx">03</span>stringhe tradotte</div>
               <div className="stat-value">{totalStrings.toLocaleString('it-IT')}</div>
             </div>
-            <div className="stat-row">
-              <div className="stat-label"><span className="idx">04</span>ultimo aggiornamento</div>
-              <div className="stat-value stat-value-sub">{formatRelativeDate(mostRecentDate)}</div>
-            </div>
           </div>
         </div>
       </section>
 
-<section className="section">
-  <div className="section-head">
-    <h2>Aggiornate di recente</h2>
-    <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
-  </div>
-  <div className="grid">
-    {recentGames.map((game, i) => (
-      <GameCard key={game.id} game={game} isNew={i === 0} />
-    ))}
-  </div>
-</section>
+      <section className="section">
+        <div className="section-head">
+          <h2>Aggiornate di recente</h2>
+          <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
+        </div>
+        <div className="grid">
+          {recentGames.map((game, i) => (
+            <GameCard key={game.id} game={game} isNew={i === 0} />
+          ))}
+        </div>
+      </section>
 
-{inProgressGames.length > 0 && (
-  <section className="section" style={{ paddingTop: 0 }}>
-    <div className="section-head">
-      <h2>In corso</h2>
-      <div className="count">{inProgressGames.length} in lavorazione</div>
-    </div>
-    <div className="grid">
-      {inProgressGames.map(game => <GameCard key={game.id} game={game} />)}
-    </div>
-  </section>
-)}
+      {inProgressGames.length > 0 && (
+        <section className="section" style={{ paddingTop: 0 }}>
+          <div className="section-head">
+            <h2>In corso</h2>
+            <div className="count">{inProgressGames.length} in lavorazione</div>
+          </div>
+          <div className="grid">
+            {inProgressGames.map(game => <GameCard key={game.id} game={game} />)}
+          </div>
+        </section>
+      )}
 
-{upcomingGames.length > 0 && (
-  <section className="section" style={{ paddingTop: 0 }}>
-    <div className="section-head">
-      <h2>In arrivo</h2>
-      <div className="count">{upcomingGames.length} in programma</div>
-    </div>
-    <div className="grid">
-      {upcomingGames.map(game => <GameCard key={game.id} game={game} />)}
-    </div>
-  </section>
-)}
-      
+      {upcomingGames.length > 0 && (
+        <section className="section" style={{ paddingTop: 0 }}>
+          <div className="section-head">
+            <h2>In arrivo</h2>
+            <div className="count">{upcomingGames.length} in programma</div>
+          </div>
+          <div className="grid">
+            {upcomingGames.map(game => <GameCard key={game.id} game={game} />)}
+          </div>
+        </section>
+      )}
+
     </>
   )
 }

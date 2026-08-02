@@ -94,11 +94,10 @@ function Traduzioni() {
       )}
 
       <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
-        <p className="detail-text" style={{ marginBottom: '16px' }}>
+        <p className="detail-text" style={{ marginBottom: '16px', maxWidth: '420px', margin: '0 auto 16px' }}>
           Non trovi il gioco che cercavi?
         </p>
-        
-          <a href="https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.md"
+        <a href="https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.yml"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary"
