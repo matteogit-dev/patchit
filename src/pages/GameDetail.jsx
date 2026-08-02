@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { games } from '../data/games'
-import { fetchGameDownloadsByTags } from '../utils/github'
 import { GameCard } from '../components/GameCard'
 import { formatRelativeDate } from '../utils/date'
 import { compareVersions } from '../utils/version'
@@ -42,7 +41,7 @@ useEffect(() => {
       }
     })
   }
-}, [game])
+}, [game])  
 
   if (!game) {
     return (

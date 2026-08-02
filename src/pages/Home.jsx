@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { games } from '../data/games'
 import { GameCard } from '../components/GameCard'
-import { fetchGameDownloadsByTags } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { fetchDownloadsFromStaticFile } from '../utils/github'
@@ -38,11 +37,15 @@ useEffect(() => {
         new Date(g.updatedDate) > new Date(latest) ? g.updatedDate : latest, gamesWithDate[0].updatedDate)
     : null
 
-  const recentGames = [...games]
+  const recentGames = games
+    .filter(g => g.status === 'complete')
     .sort((a, b) => new Date(b.updatedDate) - new Date(a.updatedDate))
     .slice(0, 3)
-
+  
+  const inProgressGames = games.filter(g => g.status === 'progress')
+  
   const upcomingGames = games.filter(g => g.status === 'planned' || g.status === 'paused')
+
   return (
     <>
       <section className="hero">
@@ -85,29 +88,41 @@ useEffect(() => {
         </div>
       </section>
 
-    <section className="section">
-      <div className="section-head">
-        <h2>Aggiornate di recente</h2>
-        <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
-      </div>
-      <div className="grid">
-        {recentGames.map((game, i) => (
-          <GameCard key={game.id} game={game} isNew={i === 0} />
-        ))}
-      </div>
-    </section>
-      
-    {upcomingGames.length > 0 && (
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="section-head">
-          <h2>In arrivo</h2>
-          <div className="count">{upcomingGames.length} in programma</div>
-        </div>
-        <div className="grid">
-          {upcomingGames.map(game => <GameCard key={game.id} game={game} />)}
-        </div>
-      </section>
-    )}
+<section className="section">
+  <div className="section-head">
+    <h2>Aggiornate di recente</h2>
+    <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
+  </div>
+  <div className="grid">
+    {recentGames.map((game, i) => (
+      <GameCard key={game.id} game={game} isNew={i === 0} />
+    ))}
+  </div>
+</section>
+
+{inProgressGames.length > 0 && (
+  <section className="section" style={{ paddingTop: 0 }}>
+    <div className="section-head">
+      <h2>In corso</h2>
+      <div className="count">{inProgressGames.length} in lavorazione</div>
+    </div>
+    <div className="grid">
+      {inProgressGames.map(game => <GameCard key={game.id} game={game} />)}
+    </div>
+  </section>
+)}
+
+{upcomingGames.length > 0 && (
+  <section className="section" style={{ paddingTop: 0 }}>
+    <div className="section-head">
+      <h2>In arrivo</h2>
+      <div className="count">{upcomingGames.length} in programma</div>
+    </div>
+    <div className="grid">
+      {upcomingGames.map(game => <GameCard key={game.id} game={game} />)}
+    </div>
+  </section>
+)}
       
     </>
   )

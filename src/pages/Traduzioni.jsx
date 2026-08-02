@@ -54,23 +54,23 @@ function Traduzioni() {
           className="search-input"
         />
 
-      <div className="filter-pills">
-        {[
-          { value: 'all', label: 'Tutte' },
-          { value: 'complete', label: 'Complete' },
-          { value: 'progress', label: 'In corso' },
-          { value: 'paused', label: 'In pausa' },
-          { value: 'planned', label: 'Pianificate' },
-        ].map(({ value, label }) => (
-          <button
-            key={value}
-            className={`pill ${statusFilter === value ? 'active' : ''}`}
-            onClick={() => setStatusFilter(value)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+        <div className="filter-pills">
+          {[
+            { value: 'all', label: 'Tutte' },
+            { value: 'complete', label: 'Complete' },
+            { value: 'progress', label: 'In corso' },
+            { value: 'paused', label: 'In pausa' },
+            { value: 'planned', label: 'Pianificate' },
+          ].map(({ value, label }) => (
+            <button
+              key={value}
+              className={`pill ${statusFilter === value ? 'active' : ''}`}
+              onClick={() => setStatusFilter(value)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
 
         <select
           value={sortBy}
@@ -92,6 +92,20 @@ function Traduzioni() {
           Nessuna traduzione trovata con questi filtri.
         </div>
       )}
+
+      <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
+        <p className="detail-text" style={{ marginBottom: '16px' }}>
+          Non trovi il gioco che cercavi?
+        </p>
+        
+          <a href="https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          ✉ Richiedi una traduzione
+        </a>
+      </div>
     </section>
   )
 }
