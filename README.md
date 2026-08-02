@@ -4,7 +4,7 @@
 
 **Patch di traduzione amatoriale per videogiochi PC in italiano.**
 
-[Sito Web](https://matteogit-dev.github.io/patchit/) • [Segnala un Problema](https://github.com/matteogit-dev/patchit/issues)
+[Sito Web](https://matteogit-dev.github.io/patchit/) • [Segnala un Problema](https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.md)
 
 </div>
 
