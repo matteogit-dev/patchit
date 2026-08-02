@@ -5,6 +5,8 @@ import { GameCard } from '../components/GameCard'
 import { fetchGameDownloadsByTags } from '../utils/github'
 import { formatRelativeDate } from '../utils/date'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { fetchDownloadsFromStaticFile } from '../utils/github'
+
 
 function Home() {
   
@@ -14,17 +16,18 @@ function Home() {
   usePageMeta(null, 'Patch di traduzione amatoriale gratuite per videogiochi PC senza localizzazione ufficiale in italiano.')
 
 
-  useEffect(() => {
-    const allTags = games.flatMap(g => g.releaseTags || [])
-    fetchGameDownloadsByTags(allTags).then(result => {
-      if (result === null) {
-        setDownloadsStatus('error')
-      } else {
-        setTotalDownloads(result)
-        setDownloadsStatus('success')
-      }
-    })
-  }, [])
+useEffect(() => {
+  fetchDownloadsFromStaticFile().then(downloadsByTag => {
+    if (downloadsByTag === null) {
+      setDownloadsStatus('error')
+    } else {
+      const allTags = games.flatMap(g => g.releaseTags || [])
+      const total = allTags.reduce((sum, tag) => sum + (downloadsByTag[tag] || 0), 0)
+      setTotalDownloads(total)
+      setDownloadsStatus('success')
+    }
+  })
+}, [])
 
   const completedCount = games.filter(g => g.progress === 100).length
   const totalStrings = games.reduce((sum, g) => sum + g.stringsTranslated, 0)

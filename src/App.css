@@ -512,21 +512,37 @@ h1 .accent { color: var(--amber); }
 
 /* ---------- Istruzioni ---------- */
 .instructions {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.8;
-  max-width: 640px;
-  padding-left: 22px;
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
 }
 
 .instructions li {
-  margin-bottom: 6px;
+  counter-increment: step;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-.instructions li::marker {
+.instructions li::before {
+  content: counter(step);
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-hi);
+  border: 1px solid var(--teal);
   color: var(--teal);
   font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-divider {

@@ -96,4 +96,42 @@ export const games = [
     changelog: [
     ],
   },
+  {
+    id: 'making-history-sww',
+    title: 'Making History: The Second World War',
+    code: 'MHTSWW',
+    status: 'planned',
+    version: '',
+    updatedDate: '',
+    progress: '',
+    stringsTranslated: 0, 
+    downloadUrl: '',
+    releaseTags: [''],
+    coverImage: 'games/making-history-sww/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/462940/Making_History_The_Second_World_War/',
+    description: '',
+    instructions: [
+    ],
+    changelog: [
+    ],
+  },
+  {
+    id: 'deepest-chamber-resurrection',
+    title: 'Deepest Chamber: Resurrection',
+    code: 'DCR',
+    status: 'planned',
+    version: '',
+    updatedDate: '',
+    progress: '',
+    stringsTranslated: 0, 
+    downloadUrl: '',
+    releaseTags: [''],
+    coverImage: 'games/deepest-chamber-resurrection/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/1552080/Deepest_Chamber_Resurrection/',
+    description: '',
+    instructions: [
+    ],
+    changelog: [
+    ],
+  },
 ]
