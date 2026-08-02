@@ -14,7 +14,10 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg);
+  background:
+    linear-gradient(var(--bg), var(--bg)),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
@@ -660,4 +663,69 @@ h1 .accent { color: var(--amber); }
   border-radius: 4px;
   background: var(--amber);
   color: #14120A;
+}
+
+/* ---------- Scrollbar personalizzata ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hi);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-hi) var(--bg);
+}
+
+/* ---------- Selezione testo ---------- */
+::selection {
+  background: var(--teal);
+  color: #0A1E1C;
+}
+
+/* ---------- Bagliore hover per stato ---------- */
+.card-complete:hover {
+  box-shadow: 0 8px 24px -8px rgba(63,169,164,0.35);
+}
+
+.card-progress:hover {
+  box-shadow: 0 8px 24px -8px rgba(232,163,61,0.35);
+}
+
+.card-paused:hover {
+  box-shadow: 0 8px 24px -8px rgba(154,159,168,0.25);
+}
+
+.card-planned:hover {
+  box-shadow: 0 8px 24px -8px rgba(110,159,232,0.35);
+}
+
+/* ---------- Transizione tra pagine ---------- */
+.page-transition {
+  animation: pageEnter 0.25s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

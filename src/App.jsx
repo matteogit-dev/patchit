@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Traduzioni from './pages/Traduzioni'
 import ChiSiamo from './pages/ChiSiamo'
@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import './App.css'
 
 function App() {
+  const location = useLocation()
   return (
     <>
       <header>
@@ -17,13 +18,15 @@ function App() {
         </nav>
       </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/traduzioni" element={<Traduzioni />} />
-        <Route path="/chi-siamo" element={<ChiSiamo />} />
-        <Route path="/gioco/:id" element={<GameDetail />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div key={location.pathname} className="page-transition">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/traduzioni" element={<Traduzioni />} />
+          <Route path="/chi-siamo" element={<ChiSiamo />} />
+          <Route path="/gioco/:id" element={<GameDetail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
 
       <footer className="site-footer">
         <div className="footer-main">

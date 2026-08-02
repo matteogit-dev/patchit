@@ -17,7 +17,7 @@ export function GameCard({ game }) {
   const showProgressBar = game.status !== 'planned'
 
   return (
-    <Link to={`/gioco/${game.id}`} className="card">
+    <Link to={`/gioco/${game.id}`} className={`card card-${game.status}`}>
       <div className="card-cover">
         {game.coverImage ? (
           <img src={`${import.meta.env.BASE_URL}${game.coverImage}`} alt={game.title} className="cover-img" />
