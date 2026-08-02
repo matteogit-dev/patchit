@@ -28,18 +28,23 @@ function Home() {
 
   const completedCount = games.filter(g => g.progress === 100).length
   const totalStrings = games.reduce((sum, g) => sum + g.stringsTranslated, 0)
-  const mostRecentDate = games.reduce((latest, g) =>
-    new Date(g.updatedDate) > new Date(latest) ? g.updatedDate : latest, games[0].updatedDate)
+  const activeCount = games.filter(g => g.status === 'complete' || g.status === 'progress').length
+  const gamesWithDate = games.filter(g => g.updatedDate)
+  const mostRecentDate = gamesWithDate.length > 0
+    ? gamesWithDate.reduce((latest, g) =>
+        new Date(g.updatedDate) > new Date(latest) ? g.updatedDate : latest, gamesWithDate[0].updatedDate)
+    : null
 
   const recentGames = [...games]
     .sort((a, b) => new Date(b.updatedDate) - new Date(a.updatedDate))
     .slice(0, 3)
 
+  const upcomingGames = games.filter(g => g.status === 'planned' || g.status === 'paused')
   return (
     <>
       <section className="hero">
         <div>
-          <div className="eyebrow">{games.length} TRADUZIONI ATTIVE</div>
+          <div className="eyebrow">{activeCount} TRADUZIONI ATTIVE</div>
           <h1>Videogiochi PC,<br />ora anche in <span className="accent">italiano</span>.</h1>
           <p>Patch di traduzione amatoriale per titoli PC senza localizzazione ufficiale. Guide passo passo e changelog per ogni progetto — gratuite, sempre.</p>
           <div className="cta-row">
@@ -77,17 +82,30 @@ function Home() {
         </div>
       </section>
 
-      <section className="section">
+    <section className="section">
+      <div className="section-head">
+        <h2>Aggiornate di recente</h2>
+        <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
+      </div>
+      <div className="grid">
+        {recentGames.map((game, i) => (
+          <GameCard key={game.id} game={game} isNew={i === 0} />
+        ))}
+      </div>
+    </section>
+      
+    {upcomingGames.length > 0 && (
+      <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-head">
-          <h2>Aggiornate di recente</h2>
-          <Link to="/traduzioni" className="count" style={{ cursor: 'pointer' }}>vedi tutte →</Link>
+          <h2>In arrivo</h2>
+          <div className="count">{upcomingGames.length} in programma</div>
         </div>
         <div className="grid">
-          {recentGames.map((game, i) => (
-            <GameCard key={game.id} game={game} isNew={i === 0} />
-          ))}
+          {upcomingGames.map(game => <GameCard key={game.id} game={game} />)}
         </div>
       </section>
+    )}
+      
     </>
   )
 }

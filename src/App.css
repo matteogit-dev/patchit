@@ -304,8 +304,34 @@ h1 .accent { color: var(--amber); }
   border-radius: 4px;
 }
 
-.status-tag.complete { background: rgba(63,169,164,0.15); color: var(--teal); border: 1px solid var(--teal-dim); }
-.status-tag.progress { background: rgba(232,163,61,0.15); color: var(--amber); border: 1px solid var(--amber-dim); }
+.status-tag {
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.status-tag.complete {
+  background: rgba(15, 30, 28, 0.85);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.status-tag.progress {
+  background: rgba(35, 24, 8, 0.85);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+}
+
+.status-tag.paused {
+  background: rgba(30, 30, 35, 0.85);
+  color: var(--text-muted);
+  border: 1px solid var(--text-muted);
+}
+
+.status-tag.planned {
+  background: rgba(15, 20, 35, 0.85);
+  color: #6E9FE8;
+  border: 1px solid #6E9FE8;
+}
 
 .card-body { padding: 18px; }
 

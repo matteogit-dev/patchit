@@ -54,26 +54,23 @@ function Traduzioni() {
           className="search-input"
         />
 
-        <div className="filter-pills">
+      <div className="filter-pills">
+        {[
+          { value: 'all', label: 'Tutte' },
+          { value: 'complete', label: 'Complete' },
+          { value: 'progress', label: 'In corso' },
+          { value: 'paused', label: 'In pausa' },
+          { value: 'planned', label: 'Pianificate' },
+        ].map(({ value, label }) => (
           <button
-            className={`pill ${statusFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setStatusFilter('all')}
+            key={value}
+            className={`pill ${statusFilter === value ? 'active' : ''}`}
+            onClick={() => setStatusFilter(value)}
           >
-            Tutte
+            {label}
           </button>
-          <button
-            className={`pill ${statusFilter === 'complete' ? 'active' : ''}`}
-            onClick={() => setStatusFilter('complete')}
-          >
-            Complete
-          </button>
-          <button
-            className={`pill ${statusFilter === 'progress' ? 'active' : ''}`}
-            onClick={() => setStatusFilter('progress')}
-          >
-            In corso
-          </button>
-        </div>
+        ))}
+      </div>
 
         <select
           value={sortBy}

@@ -41,6 +41,7 @@ function GameDetail() {
   }
 
   const progressClass = game.progress === 100 ? 'complete' : game.progress > 30 ? 'progress' : 'early'
+  const showProgressBar = game.status !== 'planned'
 
   return (
     <section className="section">
@@ -58,7 +59,13 @@ function GameDetail() {
         </div>
         <div>
           <h1 className="detail-title">{game.title}</h1>
-          <div className="card-meta">{game.version} — aggiornata {formatRelativeDate(game.updatedDate)}</div>
+          <div className="card-meta">
+          {game.status === 'planned' && 'In lista, non ancora iniziata'}
+          {game.status === 'paused' && 'Lavori sospesi temporaneamente'}
+          {(game.status === 'complete' || game.status === 'progress') && (
+            <>{game.version} {game.updatedDate ? `— aggiornata ${formatRelativeDate(game.updatedDate)}` : '— in lavorazione'}</>
+          )}
+        </div>
           <div className="progress-track" style={{ marginTop: '16px', width: '280px' }}>
             <div className={`progress-fill ${progressClass}`} style={{ width: `${game.progress}%` }} />
           </div>
