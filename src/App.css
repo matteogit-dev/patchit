@@ -777,3 +777,154 @@ h1 .accent { color: var(--amber); }
 .header-search-empty:hover {
   background: transparent;
 }
+
+/* ==================== RESPONSIVE MOBILE ==================== */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    flex: 1 1 100%;
+  }
+
+  nav {
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 48px;
+    gap: 32px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .cta-row {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats-body {
+    padding: 6px 16px;
+  }
+
+  /* Sezioni generiche */
+  .section {
+    padding: 32px 20px 60px;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Griglia card: 1 colonna sotto i 768px */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Filtri pagina Traduzioni */
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .filter-pills {
+    flex-wrap: wrap;
+  }
+
+  .sort-select {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Pagina dettaglio gioco */
+  .detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .detail-cover {
+    width: 100%;
+    height: 200px;
+  }
+
+  .detail-title {
+    font-size: 26px;
+  }
+
+  .progress-track,
+  .progress-label {
+    width: 100% !important;
+  }
+
+  .cta-row .btn,
+  .cta-row a,
+  .cta-row button {
+    width: 100%;
+  }
+
+  /* Footer */
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* Pagina Chi sono */
+  .about-statement {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .card-cover {
+    height: 120px;
+  }
+}

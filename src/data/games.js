@@ -134,4 +134,23 @@ export const games = [
     changelog: [
     ],
   },
+  {
+    id: 'lords-and-villeins',
+    title: 'Lords and Villeins',
+    code: 'LAV',
+    status: 'planned',
+    version: '',
+    updatedDate: '',
+    progress: '',
+    stringsTranslated: 0, 
+    downloadUrl: '',
+    releaseTags: [],
+    coverImage: 'games/lords-and-villeins/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/1287530/Lords_and_Villeins/',
+    description: '',
+    instructions: [
+    ],
+    changelog: [
+    ],
+  },
 ]
