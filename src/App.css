@@ -729,3 +729,51 @@ h1 .accent { color: var(--amber); }
     transform: translateY(0);
   }
 }
+
+/* ---------- Ricerca header ---------- */
+.header-search {
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+  margin: 0 32px;
+}
+
+.header-search-input {
+  width: 100%;
+  padding: 9px 14px;
+  font-size: 13px;
+}
+
+.header-search-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.header-search-item {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.header-search-item:hover {
+  background: var(--surface-hi);
+}
+
+.header-search-empty {
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.header-search-empty:hover {
+  background: transparent;
+}

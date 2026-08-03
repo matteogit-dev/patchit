@@ -1,4 +1,6 @@
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { games } from './data/games'
 import Home from './pages/Home'
 import Traduzioni from './pages/Traduzioni'
 import ChiSiamo from './pages/ChiSiamo'
@@ -8,15 +10,54 @@ import './App.css'
 
 function App() {
   const location = useLocation()
+  const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState('')
+  const [showResults, setShowResults] = useState(false)
+
+  const searchResults = searchQuery.trim()
+    ? games.filter(g => g.title.toLowerCase().includes(searchQuery.trim().toLowerCase())).slice(0, 5)
+    : []
+
+  function goToGame(id) {
+    setSearchQuery('')
+    setShowResults(false)
+    navigate(`/gioco/${id}`)
+  }
   return (
     <>
-      <header>
-        <Link to="/" className="logo"><span className="cursor"></span>PatchIT</Link>
-        <nav>
-          <Link to="/traduzioni">Traduzioni</Link>
-          <Link to="/chi-siamo">Chi sono</Link>
-        </nav>
-      </header>
+<header>
+  <Link to="/" className="logo"><span className="cursor"></span>PatchIT</Link>
+
+  <div className="header-search">
+    <input
+      type="text"
+      placeholder="Cerca un gioco..."
+      value={searchQuery}
+      onChange={e => { setSearchQuery(e.target.value); setShowResults(true) }}
+      onFocus={() => setShowResults(true)}
+      onBlur={() => setTimeout(() => setShowResults(false), 150)}
+      className="search-input header-search-input"
+    />
+    {showResults && searchQuery.trim() && (
+      <div className="header-search-dropdown">
+        {searchResults.length > 0 ? (
+          searchResults.map(g => (
+            <div key={g.id} className="header-search-item" onMouseDown={() => goToGame(g.id)}>
+              {g.title}
+            </div>
+          ))
+        ) : (
+          <div className="header-search-item header-search-empty">Nessun risultato</div>
+        )}
+      </div>
+    )}
+  </div>
+
+  <nav>
+    <Link to="/traduzioni">Traduzioni</Link>
+    <Link to="/chi-siamo">Chi sono</Link>
+  </nav>
+</header>
 
       <div key={location.pathname} className="page-transition">
         <Routes>
