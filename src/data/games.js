@@ -104,7 +104,7 @@ export const games = [
     version: '',
     updatedDate: '',
     progress: '',
-    stringsTranslated: 0, 
+    stringsTranslated: 0, //26076
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/making-history-sww/cover.jpg',
@@ -119,11 +119,11 @@ export const games = [
     id: 'deepest-chamber-resurrection',
     title: 'Deepest Chamber: Resurrection',
     code: 'DCR',
-    status: 'planned',
-    version: '',
+    status: 'progress',
+    version: 'v1.0',
     updatedDate: '',
-    progress: '',
-    stringsTranslated: 0, 
+    progress: 0.51,
+    stringsTranslated: 16, //3135
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/deepest-chamber-resurrection/cover.jpg',
@@ -142,7 +142,7 @@ export const games = [
     version: '',
     updatedDate: '',
     progress: '',
-    stringsTranslated: 0, 
+    stringsTranslated: 0, //9032
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/lords-and-villeins/cover.jpg',
