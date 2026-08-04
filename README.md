@@ -5,7 +5,7 @@
 **Patch di traduzione amatoriale per videogiochi PC in italiano.**
 
 [![Sito Web](https://img.shields.io/badge/🌐_Sito-Visita-5865F2?style=for-the-badge)](https://matteogit-dev.github.io/patchit/)
-[![Richiedi Traduzione](https://img.shields.io/badge/✉️_Richiedi-Traduzione-E8A33D?style=for-the-badge)](https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.md)
+[![Richiedi Traduzione](https://img.shields.io/badge/✉️_Richiedi-Traduzione-E8A33D?style=for-the-badge)](https://github.com/matteogit-dev/patchit/issues/new?template=richiesta-traduzione.yml)
 
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=FFD62E)
