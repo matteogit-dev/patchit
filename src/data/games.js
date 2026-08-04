@@ -81,8 +81,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 89.19,
-    stringsTranslated: 5066, //5680
+    progress: 94.67,
+    stringsTranslated: 5412, //5680
     downloadUrl: '',
     releaseTags: ['along-the-edge-v1.0'],
     coverImage: 'games/along-the-edge/cover.jpg',
@@ -122,8 +122,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 0.51,
-    stringsTranslated: 16, //3135
+    progress: 1.98,
+    stringsTranslated: 62, //3135
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/deepest-chamber-resurrection/cover.jpg',

@@ -42,7 +42,7 @@ export function GameCard({ game }) {
             </div>
             <div className="progress-label">
               <span>{game.progress}%</span>
-              <span>{game.stringsTranslated} stringhe</span>
+              <span>{game.stringsTranslated} stringhe tradotte</span>
             </div>
           </>
         )}
