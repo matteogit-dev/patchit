@@ -78,22 +78,23 @@ export const games = [
     id: 'along-the-edge',
     title: 'Along The Edge',
     code: 'ATE',
-    status: 'progress',
+    status: 'complete',
     version: 'v1.0',
-    updatedDate: '',
-    progress: 94.67,
-    stringsTranslated: 5412, //5680
-    downloadUrl: '',
+    updatedDate: '2026-08-04',
+    progress: 100,
+    stringsTranslated: 5680,
+    downloadUrl: 'https://github.com/matteogit-dev/patchit/releases/download/along-the-edge-v1.0/Alone.The.Edge-ITA-v1.0.zip',
     releaseTags: ['along-the-edge-v1.0'],
     coverImage: 'games/along-the-edge/cover.jpg',
     steamUrl: 'https://store.steampowered.com/app/504390/Along_the_Edge/',
     description: 'Traduzione amatoriale completa dei sottotitoli e dei testi di Along The Edge.',
     instructions: [
       'Scarica ed estrai lo zip della traduzione.',
-      'Copia il file estratto nella cartella di installazione del gioco steamapps/common/Along the Edge/Along-the-Edge_Data/StreamingAssets/locales.',
+      'Copia la cartella estratta, nella cartella di installazione del gioco steamapps/common/Along the Edge/Along-the-Edge_Data/StreamingAssets/locales.',
       'Avvia il gioco e seleziona la lingua Italiano dal menu impostazioni.',
     ],
     changelog: [
+      { version: 'v1.0', date: '2026-08-04', note: 'Prima versione completa della traduzione.' }
     ],
   },
   {
