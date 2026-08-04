@@ -81,8 +81,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 89.12,
-    stringsTranslated: 5065, //5680
+    progress: 89.19,
+    stringsTranslated: 5066, //5680
     downloadUrl: '',
     releaseTags: ['along-the-edge-v1.0'],
     coverImage: 'games/along-the-edge/cover.jpg',
