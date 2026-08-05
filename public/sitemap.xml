@@ -44,4 +44,8 @@
     <loc>https://matteogit-dev.github.io/patchit/#/gioco/cast-and-spell</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://matteogit-dev.github.io/patchit/#/gioco/forgive-me-father</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
