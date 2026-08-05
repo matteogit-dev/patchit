@@ -123,8 +123,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 1.98,
-    stringsTranslated: 62, //3135
+    progress: 33.43,
+    stringsTranslated: 1048, //3135
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/deepest-chamber-resurrection/cover.jpg',
@@ -148,6 +148,25 @@ export const games = [
     releaseTags: [],
     coverImage: 'games/lords-and-villeins/cover.jpg',
     steamUrl: 'https://store.steampowered.com/app/1287530/Lords_and_Villeins/',
+    description: '',
+    instructions: [
+    ],
+    changelog: [
+    ],
+  },
+  {
+    id: 'cast-and-spell',
+    title: 'Cast and Spell',
+    code: 'CAS',
+    status: 'planned',
+    version: '',
+    updatedDate: '',
+    progress: '',
+    stringsTranslated: 0, //357
+    downloadUrl: '',
+    releaseTags: [],
+    coverImage: 'games/cast-and-spell/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/3032020/Cast__Spell/',
     description: '',
     instructions: [
     ],
