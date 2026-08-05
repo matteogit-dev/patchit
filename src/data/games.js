@@ -123,8 +123,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 33.43,
-    stringsTranslated: 1048, //3135
+    progress: 40.61,
+    stringsTranslated: 1273, //3135
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/deepest-chamber-resurrection/cover.jpg',
@@ -158,11 +158,11 @@ export const games = [
     id: 'cast-and-spell',
     title: 'Cast and Spell',
     code: 'CAS',
-    status: 'planned',
-    version: '',
+    status: 'progress',
+    version: 'v1.0',
     updatedDate: '',
-    progress: '',
-    stringsTranslated: 0, //357
+    progress: '24.65',
+    stringsTranslated: 88, //357
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/cast-and-spell/cover.jpg',
