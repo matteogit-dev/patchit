@@ -39,7 +39,7 @@ export const games = [
     steamUrl: 'https://store.steampowered.com/app/793460/112_Operator/',
     description: 'Traduzione amatoriale completa dei sottotitoli e dei testi di 112 Operator.',
     instructions: [
-      'Premi sul pulsante Scarica patch, verrai reindirizzato su Steam .',
+      'Premi sul pulsante Scarica patch, verrai reindirizzato su Steam.',
       'Premi il tasto Sottoscrivi.',
       'Avvia il gioco e seleziona la lingua Italiana dal menu impostazioni.',
     ],
@@ -181,10 +181,10 @@ export const games = [
     id: 'forgive-me-father',
     title: 'Forgive Me Father',
     code: 'FMF',
-    status: 'planned',
+    status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: '',
+    progress: 0,
     stringsTranslated: 0, //1263
     downloadUrl: '',
     releaseTags: [],
@@ -194,6 +194,37 @@ export const games = [
     instructions: [
     ],
     changelog: [
+    ],
+  },
+  {
+    id: 'unity-of-command-2',
+    title: 'Unity of Command 2',
+    code: 'UOF2',
+    status: 'paused',
+    version: 'v.0.9',
+    updatedDate: '',
+    progress: 0,
+    stringsTranslated: 0, //
+    downloadUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3256489088',
+    releaseTags: [],
+    coverImage: 'games/unity-of-command-2/cover.jpg',
+    steamUrl: 'https://store.steampowered.com/app/809230/Unity_of_Command_II/',
+    description: 'Traduzione amatoriale completa dei sottotitoli e dei testi di Unity of Command 2.',
+    instructions: [
+      'Premi sul pulsante Scarica patch, verrai reindirizzato su Steam.',
+      'Premi il tasto Sottoscrivi.',
+      'Avvia il gioco e seleziona la lingua Inglese dal menu impostazioni.',
+    ],
+    changelog: [
+      { version: 'v0.1', date: '2024-05-29', note: 'Primo rilascio e traduzione di tutto il menu di gioco e gli obiettivi.' },
+      { version: 'v0.2', date: '2024-05-30', note: 'Tradotta la descrizione della campagna del DLC Kursk, del DLC Zitadelle e del DLC Desert Fox' },
+      { version: 'v0.3', date: '2024-05-30', note: 'Tradotta la descrizione della campagna del DLC Desert Rat e della campagna del DLC Don e tradotte le carte di gioco' },
+      { version: 'v0.4', date: '2024-05-30', note: 'Traduzione parziale Interfaccia Utente' },
+      { version: 'v0.5', date: '2024-05-31', note: 'Traduzione completa Interfaccia Utente' },
+      { version: 'v0.6', date: '2024-06-02', note: 'Traduzione completa delle cinematiche di gioco e dello scenario del DLC Don' },
+      { version: 'v0.7', date: '2024-06-05', note: 'Traduzione completa dello scenario del DLC Mosca e traduzioni ulteriori e varie' },
+      { version: 'v0.8', date: '2024-06-12', note: 'Traduzioni completa del tutorial e traduzione completa dello scenario del DLC Kursk' },
+      { version: 'v0.9', date: '2024-08-05', note: 'Inizio traduzione dei suggerimenti di gioco' },
     ],
   },
 ]

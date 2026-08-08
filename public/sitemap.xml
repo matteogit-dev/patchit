@@ -48,4 +48,8 @@
     <loc>https://matteogit-dev.github.io/patchit/#/gioco/forgive-me-father</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://matteogit-dev.github.io/patchit/#/gioco/unity-of-command-2</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
