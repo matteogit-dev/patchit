@@ -123,8 +123,8 @@ export const games = [
     status: 'progress',
     version: 'v1.0',
     updatedDate: '',
-    progress: 43.35,
-    stringsTranslated: 1359, //3135
+    progress: 48.61,
+    stringsTranslated: 1524, //3135
     downloadUrl: '',
     releaseTags: [],
     coverImage: 'games/deepest-chamber-resurrection/cover.jpg',
